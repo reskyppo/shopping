@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 
 import BottomNavbar from "../src/components/BottomNavbar";
+import Carousel from "../src/components/Carousel";
 import Search from "../src/components/Search";
 
 const useStyles = makeStyles({
@@ -21,6 +22,7 @@ export default function Index() {
     <Container className={classes.root}>
       <Box className={classes.main}>
         <Search />
+        <Carousel />
       </Box>
       <BottomNavbar />
     </Container>
