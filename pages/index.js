@@ -1,14 +1,28 @@
-import React from "react";
+import { Box } from "@material-ui/core";
 import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
-import SignIn from "../src/components/SignIn";
+import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
+
+import BottomNavbar from "../src/components/BottomNavbar";
+import Search from "../src/components/Search";
+
+const useStyles = makeStyles({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  main: { marginBottom: "55px" },
+});
 
 export default function Index() {
+  const classes = useStyles();
+
   return (
-    <Container maxWidth="sm">
-      <Box my={8}>
-        <SignIn />
+    <Container className={classes.root}>
+      <Box className={classes.main}>
+        <Search />
       </Box>
+      <BottomNavbar />
     </Container>
   );
 }

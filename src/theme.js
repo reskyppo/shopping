@@ -13,11 +13,11 @@ const theme = createMuiTheme({
     error: {
       main: red.A400,
     },
-    white: {
-      main: grey[900],
-    },
     background: {
       default: "#fff",
+    },
+    search: {
+      main: grey[500],
     },
   },
   spacing: (value) => value ** 2,
