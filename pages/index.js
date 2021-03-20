@@ -5,6 +5,7 @@ import React from "react";
 
 import BottomNavbar from "../src/components/BottomNavbar";
 import Carousel from "../src/components/Carousel";
+import ItemList from "../src/components/ItemList";
 import Search from "../src/components/Search";
 
 const useStyles = makeStyles({
@@ -23,6 +24,7 @@ export default function Index() {
       <Box className={classes.main}>
         <Search />
         <Carousel />
+        <ItemList />
       </Box>
       <BottomNavbar />
     </Container>
