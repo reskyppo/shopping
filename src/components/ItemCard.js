@@ -1,4 +1,7 @@
 import React from "react";
+import Link from "next/link";
+
+// import material-ui
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -18,31 +21,32 @@ const useStyles = makeStyles({
   action: {
     width: "100%",
   },
+  link: {
+    textDecoration: "none",
+  },
 });
 
-export default function ItemCard() {
+export default function ItemCard({ id, name, img, price }) {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/images/banner1.jpg"
-          title="Contemplative Reptile"
-        />
+        <CardMedia className={classes.media} image={img} title={name} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Title
+            {name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            {price}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="medium" color="primary" className={classes.action}>
-          Buy
+          <Link href={`/product/${id}`}>
+            <a className={classes.link}>Buy</a>
+          </Link>
         </Button>
       </CardActions>
     </Card>

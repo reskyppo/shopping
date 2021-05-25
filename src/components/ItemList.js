@@ -2,6 +2,7 @@ import { Grid, Typography } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ItemCard from "./ItemCard";
+import { Products } from "../utils/data";
 
 const useStyles = makeStyles((theme) => ({
   head: {
@@ -22,18 +23,16 @@ const ItemList = () => {
         </Grid>
       </Grid>
       <Grid container spacing={3} className={classes.head}>
-        <Grid item xs={6}>
-          <ItemCard />
-        </Grid>
-        <Grid item xs={6}>
-          <ItemCard />
-        </Grid>
-        <Grid item xs={6}>
-          <ItemCard />
-        </Grid>
-        <Grid item xs={6}>
-          <ItemCard />
-        </Grid>
+        {Products?.map((product, idx) => (
+          <Grid item xs={6} key={idx}>
+            <ItemCard
+              id={product.id}
+              name={product.name}
+              price={product.price}
+              img={product.img}
+            />
+          </Grid>
+        ))}
       </Grid>
     </div>
   );

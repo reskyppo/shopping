@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
@@ -24,7 +24,9 @@ const BottomNavbar = ({ history }) => {
       {(context) => (
         <BottomNavigation
           value={context.value}
-          changeValue={() => context.changeValue(value)}
+          onChange={(event, newValue) => {
+            context.changeValue(newValue);
+          }}
           className={classes.root}
         >
           <BottomNavigationAction
