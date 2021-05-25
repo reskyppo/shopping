@@ -18,12 +18,16 @@ const useStyles = makeStyles({
 
 export default function Index() {
   const classes = useStyles();
-
+  const imgBanner = [
+    "/images/banner1.jpg",
+    "/images/banner2.jpg",
+    "/images/banner3.jpg",
+  ];
   return (
     <Container className={classes.root}>
       <Box className={classes.main}>
         <Search />
-        <Carousel />
+        <Carousel banner datas={imgBanner} />
         <ItemList />
       </Box>
       <BottomNavbar />
