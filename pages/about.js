@@ -1,11 +1,9 @@
-import React from "react";
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
-import ProTip from "../src/ProTip";
-import Link from "../src/Link";
-import Copyright from "../src/Copyright";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import React from "react";
+
 import BottomNavbar from "../src/components/BottomNavbar";
 
 export default function About() {
@@ -18,15 +16,12 @@ export default function About() {
         <Button
           variant="contained"
           color="primary"
-          component={Link}
           naked
           href="/"
         >
           Go to the main page
         </Button>
-        <ProTip />
-        <Copyright />
-        <BottomNavbar />
+        <BottomNavbar value="account" />
       </Box>
     </Container>
   );

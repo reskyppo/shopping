@@ -15,11 +15,11 @@ const useStyles = makeStyles({
     zIndex: 1,
   },
 });
-const BottomNavbar = ({ history }) => {
+const BottomNavbar = ({ value }) => {
   const classes = useStyles();
 
   return (
-    <BottomNavigation value="home" className={classes.root}>
+    <BottomNavigation value={value} className={classes.root}>
       <BottomNavigationAction
         value="home"
         icon={<HomeRoundedIcon />}

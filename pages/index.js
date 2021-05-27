@@ -30,7 +30,7 @@ export default function Index() {
         <Carousel banner datas={imgBanner} />
         <ItemList />
       </Box>
-      <BottomNavbar />
+      <BottomNavbar value="home" />
     </Container>
   );
 }
