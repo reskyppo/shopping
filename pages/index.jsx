@@ -3,10 +3,10 @@ import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 
-import BottomNavbar from "../src/components/BottomNavbar";
-import Carousel from "../src/components/Carousel";
-import ItemList from "../src/components/ItemList";
-import Search from "../src/components/Search";
+import BottomNavbar from "../src/components/BottomNavbar.jsx";
+import Carousel from "../src/components/Carousel.jsx";
+import ItemList from "../src/components/ItemList.jsx";
+import Search from "../src/components/Search.jsx";
 
 const useStyles = makeStyles({
   root: {
