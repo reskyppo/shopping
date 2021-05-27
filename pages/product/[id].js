@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import Skeleton from "@material-ui/lab/Skeleton";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import Avatar from "@material-ui/core/Avatar";
 
 import Carousel from "../../src/components/Carousel";
 import { Products } from "../../src/utils/data";
@@ -35,9 +38,45 @@ const Product = () => {
   return (
     <div>
       {isLoaded ? (
-        datas.map((dat) => (
-          <div key={dat.id}>
-            <p>{dat.name}</p>
+        datas.map((data) => (
+          <div key={data.id}>
+            <Carousel datas={data.carousel} />
+            <Grid container alignItems="center" className={classes.titleBar}>
+              <Grid item xs={10}>
+                <Typography variant="h5" component="h1">
+                  {data.name}
+                </Typography>
+              </Grid>
+              <Grid item xs={2}>
+                <FavoriteIcon fontSize="large" color="primary" />
+              </Grid>
+            </Grid>
+            <Typography variant="subtitle1">{data.price}</Typography>
+            <Grid
+              container
+              alignItems="center"
+              spacing={3}
+              className={classes.titleBar}
+            >
+              <Grid item xs={2}>
+                <Avatar alt="Store's Name" src={data.store.img} />
+              </Grid>
+              <Grid
+                item
+                xs={10}
+                container
+                direction="column"
+                justify="center"
+                alignItems="stretch"
+              >
+                <Typography variant="h6">{data.store.name}</Typography>
+                <Typography variant="subtitle2">
+                  {data.store.address}
+                </Typography>
+              </Grid>
+            </Grid>
+            <Typography variant="body1">Deskripsi</Typography>
+            <Typography variant="body2">{data.desc}</Typography>
           </div>
         ))
       ) : (
