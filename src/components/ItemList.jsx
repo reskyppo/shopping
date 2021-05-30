@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography, Box } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ItemCard from "./ItemCard.jsx";
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 const ItemList = () => {
   const classes = useStyles();
   return (
-    <div>
+    <Box px="0.25rem">
       <Grid container className={classes.head}>
         <Grid item xs={9}>
           <Typography variant="h6">Rekomendasi</Typography>
@@ -34,7 +34,7 @@ const ItemList = () => {
           </Grid>
         ))}
       </Grid>
-    </div>
+    </Box>
   );
 };
 
