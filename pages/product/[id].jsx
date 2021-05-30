@@ -1,28 +1,53 @@
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 import { Box, Grid } from "@material-ui/core";
+import MuiAccordion from "@material-ui/core/Accordion";
+import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
+import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import IconButton from "@material-ui/core/IconButton";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import MuiAccordion from "@material-ui/core/Accordion";
-import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
-import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
+import LocalMallRoundedIcon from "@material-ui/icons/LocalMallRounded";
 import Skeleton from "@material-ui/lab/Skeleton";
 
-import BottomNavbar from "../../src/components/BottomNavbar";
 import Carousel from "../../src/components/Carousel";
+import Search from "../../src/components/Search";
 import { Products } from "../../src/utils/data";
 
 const useStyles = makeStyles((theme) => ({
   titleBar: {
     marginTop: theme.spacing(1),
   },
-  main: { marginBottom: "55px" },
+  main: { marginBottom: "60px" },
   loveIcon: {
     textAlign: "center",
+  },
+  header: {
+    marginTop: "-8px",
+  },
+  btn: {
+    width: "100%",
+    height: "55px",
+    position: "fixed",
+    bottom: 0,
+    zIndex: 1,
+  },
+  btnCart: {
+    width: "20%",
+  },
+  btnBuy: {
+    width: "80%",
+  },
+  backArrow: {
+    marginTop: "8px",
   },
 }));
 
@@ -88,6 +113,18 @@ const Product = () => {
     <div>
       {isLoaded ? (
         <div className={classes.main}>
+          <Grid container alignItems="center" className={classes.header}>
+            <Grid item xs={2}>
+              <IconButton aria-label="back" className={classes.backArrow}>
+                <Link href="/">
+                  <KeyboardBackspaceIcon />
+                </Link>
+              </IconButton>
+            </Grid>
+            <Grid item xs={10}>
+              <Search />
+            </Grid>
+          </Grid>
           {datas.map((data) => (
             <div key={data.id}>
               <Carousel datas={data.carousel} />
@@ -150,7 +187,19 @@ const Product = () => {
               </Box>
             </div>
           ))}
-          <BottomNavbar />
+          <ButtonGroup
+            disableElevation
+            variant="contained"
+            size="large"
+            className={classes.btn}
+          >
+            <Button className={classes.btnCart}>
+              <LocalMallRoundedIcon color="primary" />
+            </Button>
+            <Button className={classes.btnBuy} color="primary">
+              Beli Sekarang
+            </Button>
+          </ButtonGroup>
         </div>
       ) : (
         <div>
@@ -182,7 +231,6 @@ const Product = () => {
           </Grid>
           <Skeleton variant="text" height={40} />
           <Skeleton variant="rect" width="100%" height={250} />
-          <BottomNavbar />
         </div>
       )}
     </div>
