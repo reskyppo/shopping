@@ -45,7 +45,9 @@ export default function ItemCard({ id, name, img, price }) {
       <CardActions>
         <Button size="medium" color="primary" className={classes.action}>
           <Link href={`/product/${id}`}>
-            <a className={classes.link}>Buy</a>
+            <Typography gutterBottom variant="subtitle1">
+              Buy
+            </Typography>
           </Link>
         </Button>
       </CardActions>
