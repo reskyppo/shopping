@@ -15,12 +15,13 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
-import LocalMallRoundedIcon from "@material-ui/icons/LocalMallRounded";
 import Skeleton from "@material-ui/lab/Skeleton";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import Badge from "@material-ui/core/Badge";
 
 import Carousel from "../../src/components/Carousel";
 import Search from "../../src/components/Search";
-import { Products } from "../../src/utils/data";
+import { Products, Carts } from "../../src/utils/data";
 
 const useStyles = makeStyles((theme) => ({
   titleBar: {
@@ -40,13 +41,8 @@ const useStyles = makeStyles((theme) => ({
     bottom: 0,
     zIndex: 1,
   },
-  btnCart: {
-    width: "20%",
-  },
-  btnBuy: {
-    width: "80%",
-  },
-  backArrow: {
+
+  btnHeader: {
     marginTop: "8px",
   },
 }));
@@ -102,7 +98,6 @@ const Product = () => {
   };
 
   const datas = Products.filter((product) => product.id == id);
-  console.log("a", datas);
   useEffect(() => {
     setTimeout(() => {
       setIsLoaded(true);
@@ -115,14 +110,25 @@ const Product = () => {
         <div className={classes.main}>
           <Grid container alignItems="center" className={classes.header}>
             <Grid item xs={2}>
-              <IconButton aria-label="back" className={classes.backArrow}>
+              <IconButton aria-label="back" className={classes.btnHeader}>
                 <Link href="/">
                   <KeyboardBackspaceIcon />
                 </Link>
               </IconButton>
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={8}>
               <Search />
+            </Grid>
+            <Grid item xs={2}>
+              <Box ml="1rem">
+                <Badge
+                  badgeContent={Carts.length}
+                  color="primary"
+                  className={classes.btnHeader}
+                >
+                  <ShoppingCartIcon />
+                </Badge>
+              </Box>
             </Grid>
           </Grid>
           {datas.map((data) => (
@@ -187,19 +193,15 @@ const Product = () => {
               </Box>
             </div>
           ))}
-          <ButtonGroup
-            disableElevation
+
+          <Button
+            color="primary"
             variant="contained"
             size="large"
             className={classes.btn}
           >
-            <Button className={classes.btnCart}>
-              <LocalMallRoundedIcon color="primary" />
-            </Button>
-            <Button className={classes.btnBuy} color="primary">
-              Beli Sekarang
-            </Button>
-          </ButtonGroup>
+            Beli Sekarang
+          </Button>
         </div>
       ) : (
         <div>
