@@ -27,4 +27,6 @@ const Products = [
   },
 ];
 
-export { Products };
+const Carts = [];
+
+export { Products, Carts };
