@@ -2,23 +2,32 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import { Box, Grid } from "@material-ui/core";
+// MUI Core
+import {
+  Box,
+  Grid,
+  Avatar,
+  Button,
+  IconButton,
+  Typography,
+  Badge,
+} from "@material-ui/core";
+// MUI Accordion
 import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
+// MUI styles
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
+// MUI Icons
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
-import Skeleton from "@material-ui/lab/Skeleton";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import Badge from "@material-ui/core/Badge";
+// MUI lab
+import Skeleton from "@material-ui/lab/Skeleton";
+// MUI color
 import { pink, grey } from "@material-ui/core/colors";
-
+// Internal import
 import Carousel from "../../src/components/Carousel";
 import Search from "../../src/components/Search";
 import { Products, Carts } from "../../src/utils/data";
@@ -151,9 +160,9 @@ const Product = () => {
                       <IconButton
                         aria-label="delete"
                         onClick={() => setIsFavorited(!isFavorited)}
-                        fontSize="large"
+                        style={{ color: isFavorited ? pink[500] : grey[500] }}
                       >
-                        <FavoriteIcon />
+                        <FavoriteIcon fontSize="large" />
                       </IconButton>
                     </Box>
                   </Grid>
