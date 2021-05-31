@@ -23,9 +23,6 @@ const useStyles = makeStyles({
   action: {
     width: "100%",
   },
-  link: {
-    textDecoration: "none",
-  },
 });
 
 export default function ItemCard({ id, name, img, price }) {
@@ -36,7 +33,7 @@ export default function ItemCard({ id, name, img, price }) {
       <CardActionArea>
         <CardMedia className={classes.media} image={img} title={name} />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography noWrap gutterBottom variant="h6" component="h2">
             {name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
