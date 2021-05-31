@@ -8,7 +8,6 @@ import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
 import IconButton from "@material-ui/core/IconButton";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -18,6 +17,7 @@ import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import Skeleton from "@material-ui/lab/Skeleton";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Badge from "@material-ui/core/Badge";
+import { pink, grey } from "@material-ui/core/colors";
 
 import Carousel from "../../src/components/Carousel";
 import Search from "../../src/components/Search";
@@ -92,6 +92,7 @@ const Product = () => {
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [expanded, setExpanded] = useState("panel1");
+  const [isFavorited, setIsFavorited] = useState(false);
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -146,8 +147,14 @@ const Product = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={2}>
-                    <Box className={classes.loveIcon}>
-                      <FavoriteIcon fontSize="large" color="primary" />
+                    <Box>
+                      <IconButton
+                        aria-label="delete"
+                        onClick={() => setIsFavorited(!isFavorited)}
+                        fontSize="large"
+                      >
+                        <FavoriteIcon />
+                      </IconButton>
                     </Box>
                   </Grid>
                 </Grid>
@@ -206,14 +213,7 @@ const Product = () => {
       ) : (
         <div>
           <Skeleton variant="rect" width="100%" height={250} />
-          <Grid container alignItems="center" className={classes.titleBar}>
-            <Grid item xs={10}>
-              <Skeleton variant="text" height={40} />
-            </Grid>
-            <Grid item xs={2}>
-              <Skeleton variant="circle" width={40} height={40} />
-            </Grid>
-          </Grid>
+          <Skeleton variant="text" height={40} />
           <Skeleton variant="text" width={120} height={40} />
           <Grid container alignItems="center" className={classes.titleBar}>
             <Grid item xs={2}>
