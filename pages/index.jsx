@@ -27,7 +27,7 @@ export default function Index() {
     <Container className={classes.root}>
       <Box className={classes.main}>
         <Search />
-        <Carousel banner datas={imgBanner} />
+        <Carousel datas={imgBanner} />
         <ItemList />
       </Box>
       <BottomNavbar value="home" />
