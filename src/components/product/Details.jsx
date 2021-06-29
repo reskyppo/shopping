@@ -27,6 +27,7 @@ import { pink, grey } from "@material-ui/core/colors";
 // Internal import
 import Carousel from "../Carousel";
 import Search from "../Search";
+import { Carts } from "../../utils/data";
 
 const useStyles = makeStyles((theme) => ({
   titleBar: {
