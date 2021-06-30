@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
   },
-  main: { marginBottom: "55px" },
+  main: { marginBottom: "55px", marginTop: "-10px" },
 });
 
 export default function Index() {
